@@ -189,6 +189,8 @@ def test_transformer_block(numpy_snapshot, ts_state_dict, in_embeddings, d_model
     # reference_weights = torch.load(FIXTURES_PATH / "transformer_block_weights.pt")
     # in_features = torch.load(FIXTURES_PATH / "in_features.pt")
 
+    # from .adapters_old import run_transformer_block
+
     block_weights = {k.replace("layers.0.", ""): v for k, v in ts_state_dict[0].items() if "layers.0." in k}
 
     actual_output = run_transformer_block(
